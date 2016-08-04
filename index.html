@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>PhoneSat</title>
+	<link rel="shortcut icon" href="images/phoneSat.ico" />
+
+	<link href="include/phonesat.css" rel="stylesheet" type="text/css"/>
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"/>
+
+	<!-- leafletjs for map display -->
+	<link rel="stylesheet" href="include/leaflet/leaflet.css" />
+	<script src="include/leaflet/leaflet.js"></script>
+</head>
+<body>
+	<div id='header'>
+		<center>
+			<a href="javascript:void(0);" onclick="show_timeline()">
+				<img class='logo' src='images/icon.png'/>
+			</a>
+		</center>
+	</div>
+	<div id="map"></div>
+	<div id='next_passes_window' class="window">
+		<h1>Next passes</h1>
+		<table id='next_passes'>
+			<tr>
+				<th>Sat</th>
+				<th>AOS</th>
+				<th>Max El</th>
+			</tr>
+		</table>
+		<a id="ical" download="phonesat.ics" >Import in Outlook or iCalendar</a>
+	</div>
+	<div id="polar_window" class="window">
+		<h1>Azimuth and elevation</h1>
+		<svg
+			xmlns="http://www.w3.org/2000/svg" version="1.1"
+			id="polar"
+			width="300px" height="300px"
+			viewBox="-110 -110 220 220"
+			overflow="hidden">
+			<path
+				fill="none" stroke="black" stroke-width="1"
+				d="M 0 -95 v 190 M -95 0 h 190"
+				/>
+			<circle
+				fill="none" stroke="black"
+				cx="0" cy="0" r="30"
+				/>
+			<circle
+				fill="none" stroke="black"
+				cx="0" cy="0" r="60"
+				/>
+			<circle
+				fill="none" stroke="black"
+				cx="0" cy="0" r="90"
+				/>
+			<text x="-4" y="-96" font-family="Verdana" font-size="10" fill="green">
+				N
+			</text>
+			<text x="-4" y="105" font-family="Verdana" font-size="10" fill="green">
+				S
+			</text>
+			<text x="96" y="4" font-family="Verdana" font-size="10" fill="green">
+				E
+			</text>
+			<text x="-106" y="4" font-family="Verdana" font-size="10" fill="green">
+				W
+			</text>
+		</svg>
+		<table>
+			<tr>
+				<th>Satellite:</th>
+				<td id="sat_name"></td>
+			</tr>
+			<tr>
+				<th>Azimuth:</th>
+				<td id="sat_az"></td>
+			</tr>
+			<tr>
+				<th>Elevation:</th>
+				<td id="sat_el"></td>
+			</tr>
+			<tr>
+				<th>Frequency (w/ Doppler):</th>
+				<td id="sat_freq"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="timeline_mask" onclick="hide_timeline()">
+		<iframe
+			id="timeline"
+			src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1h5uQ5WM_9echPbi-bFdtHt-13ewAiy5MjTpPKyeoe_Q&font=Default&lang=en&initial_zoom=0&height=650"
+			height="650"
+			frameborder="0"
+			scrolling="no"
+			marginheight="0"
+			marginwidth="0">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="include/gpredict.min.js"></script>
+<script type="text/javascript" src="include/config.js"></script>
+<script type="text/javascript" src="include/phonesat.js"></script>
