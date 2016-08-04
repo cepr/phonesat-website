@@ -12,6 +12,17 @@ body {
 #header {
 	height: 50px;
 	background: black;
+	text-align: center;
+}
+
+#header img {
+	height: 50px;	
+}
+
+.github_icon {
+	position: absolute;
+	top: 0px;
+	right: 3px;
 }
 
 #map {
@@ -20,10 +31,6 @@ body {
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-}
-
-.logo {
-	height: 50px;
 }
 
 .window {
