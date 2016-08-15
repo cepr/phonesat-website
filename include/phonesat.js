@@ -540,42 +540,35 @@ map.on('overlayremove', function(e) {
 
 // Init satellites
 var sats = [];
-var myRequest = new XMLHttpRequest();
-myRequest.addEventListener('load', function () {
+
+function parseTLE() {
 	// The TLE file has been downloaded from NORAD
-	var lines = this.responseText.split('\n');
-	var i;
-	for (i = 0; i < lines.length; i += 3)
-	{
-		var name = lines[i].trim();
-		if (SATELLITES.some(function (val, index, array) {
-			return name == val;
-		})) {
-			var tle = [lines[i],
-					   lines[i + 1],
-					   lines[i + 2]];
-			// Construct a new satellite
-			var sat = new sat_t();
-			sat.freq = FREQUENCIES.get(name);
-			// Load its orbit data from TLE
-			gtk_sat_data_read_sat(tle, sat);
-			// Set its color
-			sat.color = getSvgColor(sats.length * 360 / SATELLITES.length,
-					SAT_CFG_COLOR_SATURATION, SAT_CFG_COLOR_VALUE);
-			sat.mapInit(map);
-			sat.polarInit();
-			// Save it to the list
-			sats.push(sat);
-		}
-	}
+	// Convert the HTML page to a plain text
+	var re = /^[^]*<PRE>\n([^]*)<\/PRE>[^]*$/;
+	var tle = this.responseText.replace(re, "$1").split('\n');
+	// Construct a new satellite
+	var sat = new sat_t();
+	sat.freq = this.sat_freq;
+	// Load its orbit data from TLE
+	gtk_sat_data_read_sat(tle, sat);
+	// Set its color
+	sat.color = getSvgColor(sats.length * 360 / SATELLITES.length,
+			SAT_CFG_COLOR_SATURATION, SAT_CFG_COLOR_VALUE);
+	sat.mapInit(map);
+	sat.polarInit();
+	// Save it to the list
+	sats.push(sat);
 	// Initiate a first refresh
 	onGroundStationChanged();
-	refresh();
+}
 
-	// Start timer
-	window.setInterval("refresh()", 1000);
-
+SATELLITES.forEach(function(currentValue, index, array) {
+	var myRequest = new XMLHttpRequest();
+	myRequest.sat_freq = currentValue.freq;
+	myRequest.addEventListener('load', parseTLE);
+	myRequest.open("GET", "https://crossorigin.me/http://celestrak.com/cgi-bin/TLE.pl?CATNR=" + currentValue.id);
+	myRequest.send();
 });
-myRequest.open("GET", "https://crossorigin.me/http://celestrak.com/NORAD/elements/cubesat.txt");
-myRequest.send();
 
+// Start timer
+window.setInterval("refresh()", 1000);
