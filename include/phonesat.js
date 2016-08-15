@@ -314,6 +314,9 @@ function refresh_sat_info() {
 					.toFixed(3)
 					+ " MHz";
 		}
+		if (sat_alt) {
+			sat_alt.innerHTML = displayed_pass.sat.alt.toFixed(1) + " km";
+		}
 	}
 }
 
@@ -330,6 +333,7 @@ var sat_name = document.getElementById("sat_name");
 var sat_az = document.getElementById("sat_az");
 var sat_el = document.getElementById("sat_el");
 var sat_freq = document.getElementById("sat_freq");
+var sat_alt = document.getElementById("sat_alt");
 var polar_window = document.getElementById("polar_window");
 var next_passes_window = document.getElementById("next_passes_window");
 var timeline_mask = document.getElementById("timeline_mask");
