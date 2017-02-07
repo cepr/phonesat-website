@@ -19,11 +19,6 @@ var SAT_CFG_COLOR_SATURATION = 0.7;
 var SAT_CFG_COLOR_VALUE = 255;
 
 var SATELLITES = [
-	// PHONESAT 2.4
-	{
-		id: 39381,
-		freq: 437.425
-	},
 	// NODES 1
 	{
 		id: 41477,
