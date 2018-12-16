@@ -570,7 +570,7 @@ SATELLITES.forEach(function(currentValue, index, array) {
 	var myRequest = new XMLHttpRequest();
 	myRequest.sat_freq = currentValue.freq;
 	myRequest.addEventListener('load', parseTLE);
-	myRequest.open("GET", "http://cors-anywhere.herokuapp.com/http://celestrak.com/cgi-bin/TLE.pl?CATNR=" + currentValue.id);
+	myRequest.open("GET", "http://celestrak.com/cgi-bin/TLE.pl?CATNR=" + currentValue.id);
 	myRequest.send();
 });
 
