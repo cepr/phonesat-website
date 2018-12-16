@@ -1,7 +1,7 @@
 // Default ground station
 qth = new qth_t();
-qth.lat=37.9235381;
-qth.lon=-75.4766902;
+qth.lat=37.417352;
+qth.lon=-122.058243;
 qth.alt=0;
 
 // Number of positions to compute
@@ -19,9 +19,24 @@ var SAT_CFG_COLOR_SATURATION = 0.7;
 var SAT_CFG_COLOR_VALUE = 255;
 
 var SATELLITES = [
-	// TechEdSat 6
+	// OBJECT A
 	{
-		id: 43026,
-		freq: 2.457
+		id: 43849,
+		freq: 0.43756
+	},
+	// OBJECT B
+	{
+		id: 43850,
+		freq: 0.43756
+	},
+	// OBJECT C
+	{
+		id: 43851,
+		freq: 0.43756
+	},
+	// OBJECT D
+	{
+		id: 43852,
+		freq: 0.43756
 	}
 ];
