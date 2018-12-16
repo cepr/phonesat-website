@@ -570,7 +570,7 @@ SATELLITES.forEach(function(currentValue, index, array) {
 	var myRequest = new XMLHttpRequest();
 	myRequest.sat_freq = currentValue.freq;
 	myRequest.addEventListener('load', parseTLE);
-	myRequest.open("GET", "http://celestrak.com/cgi-bin/TLE.pl?CATNR=" + currentValue.id);
+	myRequest.open("GET", "https://www.space-track.org/basicspacedata/query/class/tle_latest/NORAD_CAT_ID/"+currentValue.id+"/orderby/ORDINAL asc/limit/1/format/3le/emptyresult/show");
 	myRequest.send();
 });
 
