@@ -21,7 +21,7 @@ var SAT_CFG_COLOR_VALUE = 255;
 var SATELLITES = [
 	// OBJECT A
 	{
-		url: "https://s3-us-west-2.amazonaws.com/chomptt/tle.txt",
+		url: "https://9hr0d59j3k.execute-api.us-west-2.amazonaws.com/default/download_chomptt_tle",
 		freq: 0.43756
 	}
 ];
