@@ -566,10 +566,15 @@ function parseTLE() {
 	onGroundStationChanged();
 }
 
+function tleDownloadError() {
+	console.error("Cannot download TLE");
+}
+
 SATELLITES.forEach(function(currentValue, index, array) {
 	var myRequest = new XMLHttpRequest();
 	myRequest.sat_freq = currentValue.freq;
 	myRequest.addEventListener('load', parseTLE);
+	myRequest.addEventListener('error', tleDownloadError);
 	myRequest.open("GET", currentValue.url);
 	myRequest.send();
 });
