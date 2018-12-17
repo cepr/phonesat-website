@@ -566,8 +566,9 @@ function parseTLE() {
 	onGroundStationChanged();
 }
 
-function tleDownloadError() {
+function tleDownloadError(e) {
 	console.error("Cannot download TLE");
+	console.error(e);
 }
 
 SATELLITES.forEach(function(currentValue, index, array) {
