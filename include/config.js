@@ -21,22 +21,7 @@ var SAT_CFG_COLOR_VALUE = 255;
 var SATELLITES = [
 	// OBJECT A
 	{
-		id: 43849,
-		freq: 0.43756
-	},
-	// OBJECT B
-	{
-		id: 43850,
-		freq: 0.43756
-	},
-	// OBJECT C
-	{
-		id: 43851,
-		freq: 0.43756
-	},
-	// OBJECT D
-	{
-		id: 43852,
+		url: "https://s3-us-west-2.amazonaws.com/chomptt/tle.txt",
 		freq: 0.43756
 	}
 ];
