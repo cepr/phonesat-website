@@ -1,7 +1,13 @@
-// Default ground station
+// NASA ARC ground station
+// qth = new qth_t();
+// qth.lat=37.417352;
+// qth.lon=-122.058243;
+// qth.alt=0;
+
+// NASA WFF ground station
 qth = new qth_t();
-qth.lat=37.417352;
-qth.lon=-122.058243;
+qth.lat=37.924444;
+qth.lon=-75.476389;
 qth.alt=0;
 
 // Number of positions to compute
@@ -19,9 +25,14 @@ var SAT_CFG_COLOR_SATURATION = 0.7;
 var SAT_CFG_COLOR_VALUE = 255;
 
 var SATELLITES = [
-	// OBJECT A
+	// CHOMPTT
+	// {
+	// 	url: "https://9hr0d59j3k.execute-api.us-west-2.amazonaws.com/default/download_chomptt_tle",
+	// 	freq: 0.43756
+	// },
+	// TECHEDSAT 10
 	{
-		url: "https://9hr0d59j3k.execute-api.us-west-2.amazonaws.com/default/download_chomptt_tle",
-		freq: 0.43756
+		url: "https://dnticuyeyh.execute-api.us-west-2.amazonaws.com/default/download_techedsat10_tle",
+		freq: 2.28
 	}
 ];
