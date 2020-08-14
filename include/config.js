@@ -18,7 +18,7 @@ var STEP = 60*1000;
 
 var SAT_CFG_INT_PRED_RESOLUTION = 10;
 var SAT_CFG_INT_PRED_NUM_ENTRIES = 20;
-var SAT_CFG_INT_PRED_MIN_EL = 5;
+var SAT_CFG_INT_PRED_MIN_EL = 40;
 // Color saturation between 0 and 1
 var SAT_CFG_COLOR_SATURATION = 0.7;
 // Color value between 0 and 255
