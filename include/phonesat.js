@@ -429,7 +429,6 @@ function onGroundStationChanged() {
 				"DTSTART:" + ISODateString(Date_Time(all_passes[i].aos)) + "\r\n" +
 				"DTEND:" + ISODateString(Date_Time(all_passes[i].los)) + "\r\n" +
 				"SUMMARY:Max elevation: " + all_passes[i].max_el + "\r\n" +
-				"ATTACH:http://www.phonesat.org/\r\n" +
 				"LOCATION:" + qth.lat + "\\," + qth.lon + "\r\n" +
 				"END:VEVENT\r\n";
 		}
